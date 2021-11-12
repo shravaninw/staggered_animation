@@ -51,7 +51,7 @@ class _StaggerDemoState extends State<StaggerDemo>
         ),
       ),
     );
-    height = Tween<double>(begin: 50.0, end: 150.0).animate(
+    height = Tween<double>(begin: 0.0, end: 250.0).animate(
       CurvedAnimation(
         parent: controller,
         curve: Interval(
@@ -87,15 +87,38 @@ class _StaggerDemoState extends State<StaggerDemo>
         ),
       ),
     );
-    color = ColorTween(
-      begin: Colors.indigo[100],
-      end: Colors.orange[400],
+    width = Tween<double>(
+      begin: 150.0,
+      end: 350.0,
     ).animate(
       CurvedAnimation(
         parent: controller,
         curve: Interval(
           0.500,
           0.750,
+          curve: Curves.ease,
+        ),
+      ),
+    );
+    height = Tween<double>(begin: 20.0, end: 600.0).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          0.1000,
+          0.2000,
+          curve: Curves.ease,
+        ),
+      ),
+    );
+    color = ColorTween(
+      begin: Colors.red[100],
+      end: Colors.blue[100],
+    ).animate(
+      CurvedAnimation(
+        parent: controller,
+        curve: Interval(
+          0.700,
+          0.850,
           curve: Curves.ease,
         ),
       ),
@@ -115,7 +138,6 @@ class _StaggerDemoState extends State<StaggerDemo>
         title: const Text('Staggered Animation'),
       ),
       body: GestureDetector(
-        behavior: HitTestBehavior.opaque,
         onTap: () {
           if (controller.status == AnimationStatus.dismissed) {
             controller.forward();
@@ -155,10 +177,9 @@ class _StaggerDemoState extends State<StaggerDemo>
           decoration: BoxDecoration(
             color: color.value,
             border: Border.all(
-              color: Colors.indigo[300]!,
+              color: Colors.indigo,
               width: 3.0,
             ),
-            borderRadius: borderRadius.value,
           ),
         ),
       ),
