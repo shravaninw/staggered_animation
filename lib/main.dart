@@ -73,19 +73,7 @@ class _StaggerDemoState extends State<StaggerDemo>
         ),
       ),
     );
-    borderRadius = BorderRadiusTween(
-      begin: BorderRadius.circular(4.0),
-      end: BorderRadius.circular(75.0),
-    ).animate(
-      CurvedAnimation(
-        parent: controller,
-        curve: Interval(
-          0.375,
-          0.500,
-          curve: Curves.ease,
-        ),
-      ),
-    );
+
     width = Tween<double>(
       begin: 150.0,
       end: 350.0,
